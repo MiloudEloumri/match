@@ -44,14 +44,14 @@ philosopher(N, X) ->
 
 think(N) ->
     io:format("~w: thinking ...~n", [N]),
-    timer:sleep(random:uniform(10) * 1000).
+    timer:sleep(rand:uniform(10) * 1000).
 
 eat(N) ->
     io:format("~w: eating ...~n", [N]),
-    timer:sleep(random:uniform(10) * 1000).
+    timer:sleep(rand:uniform(10) * 1000).
 
 new_seed() ->
-    {_, _, X} = erlang:now(),
+    {_, _, X} = erlang:timestamp(),
     {H, M, S} = time(),
     H1 = H * X rem 32767,
     M1 = M * X rem 32767,
