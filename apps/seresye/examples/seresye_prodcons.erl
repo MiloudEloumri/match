@@ -12,7 +12,7 @@
 
 start() ->
     application:start(seresye),
-    eresye:start(pc),
+    seresye:start(pc),
     spawn(prodcons, cons_1, [1]),
     spawn(prodcons, cons_1, [2]),
     spawn(prodcons, cons_1, [3]),
@@ -21,17 +21,17 @@ start() ->
 
 prod(20) -> ok;
 prod(Index) ->
-    eresye:assert(pc, {item, Index}), prod(Index + 1).
+    seresye:assert(pc, {item, Index}), prod(Index + 1).
 
 cons(20) -> ok;
 cons(Index) ->
-    Fact = eresye:retract(pc,
+    Fact = seresye:retract(pc,
                           {item, fun (X) -> X == Index end}),
     io:format("Consumer ~p~n", [Fact]),
     cons(Index + 1).
 
 cons_1(N) ->
-    Fact = eresye:wait_and_retract(pc, {item, '_'}),
+    Fact = seresye:wait_and_retract(pc, {item, '_'}),
     io:format("~w: Consumer ~p~n", [N, Fact]),
-    timer:sleep(random:uniform(500)),
+    timer:sleep(rand:uniform(500)),
     cons_1(N).
