@@ -1,0 +1,6 @@
+_build
+erl_crash.dump
+doc/_site
+deps
+ebin
+sync.ffs_db
