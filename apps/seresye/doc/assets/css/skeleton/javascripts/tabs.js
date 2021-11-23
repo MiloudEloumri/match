@@ -8,35 +8,35 @@
 */
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-	/* Tabs Activiation
-	================================================== */
+    /* Tabs Activation
+    ================================================== */
 
-	var tabs = $('ul.tabs');
+    var tabs = $('ul.tabs');
 
-	tabs.each(function(i) {
+    tabs.each(function (i) {
 
-		//Get all tabs
-		var tab = $(this).find('> li > a');
-		tab.click(function(e) {
+        //Get all tabs
+        var tab = $(this).find('> li > a');
+        tab.click(function (e) {
 
-			//Get Location of tab's content
-			var contentLocation = $(this).attr('href');
+            //Get Location of tab's content
+            var contentLocation = $(this).attr('href');
 
-			//Let go if not a hashed one
-			if(contentLocation.charAt(0)=="#") {
+            //Let go if not a hashed one
+            if (contentLocation.charAt(0) == "#") {
 
-				e.preventDefault();
+                e.preventDefault();
 
-				//Make Tab Active
-				tab.removeClass('active');
-				$(this).addClass('active');
+                //Make Tab Active
+                tab.removeClass('active');
+                $(this).addClass('active');
 
-				//Show Tab Content & add active class
-				$(contentLocation).show().addClass('active').siblings().hide().removeClass('active');
+                //Show Tab Content & add active class
+                $(contentLocation).show().addClass('active').siblings().hide().removeClass('active');
 
-			}
-		});
-	});
+            }
+        });
+    });
 });
