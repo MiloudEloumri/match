@@ -8,7 +8,7 @@
 /* Page */
 body {
     background: #333333 url('../images/page-background.png') repeat top left;
-    font-family: arial,sans-serif;
+    font-family: arial, sans-serif;
 }
 
 /* Header */
@@ -67,7 +67,7 @@ a:hover {
 }
 
 h1, h2 {
-    font-family: georgia,serif;
+    font-family: georgia, serif;
 }
 
 h1 {
@@ -158,6 +158,7 @@ dl {
     box-shadow: 3px 3px 5px #000000;
     overflow-x: auto;
 }
+
 dt {
     font-weight: bold
 }
@@ -218,7 +219,7 @@ img.repo-author-logo {
 
 .menu ul li a:hover, .menu ul li .current {
     color: #fff;
-    background-color:#0b75b2;
+    background-color: #0b75b2;
 }
 
 /* Media queries */
