@@ -10,7 +10,10 @@
    ]},
   {env,[]},
   {modules, []},
-
+    
+  {maintainers, ["Miloud Eloumri"]},
   {licenses, ["Apache 2.0"]},
-  {links, []}
+  {links, [{"Github",
+    "https://github.com/MiloudEloumri/match"}]}
+
  ]}.
