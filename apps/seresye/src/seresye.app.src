@@ -1,11 +1,44 @@
-%% -*- mode: Erlang; fill-column: 75; comment-column: 50; -*-
-
-{application, seresye,
- [{description, "SERESYE means Swarm oriented ERlang Expert SYstem Engine. It is a library "
-   "to write expert systems and rule processing engines using the Erlang "
-   "programming language"},
-  {vsn, "0.0.4"},
-  {modules, []},
+%%%-------------------------------------------------------------------
+%%% SERESYE, a Swarm oriented ERlang Expert SYstem Engine
+%%%
+%%% @author Francesca Gangemi
+%%% @author Corrado Santoro
+%%% @copyright (C) 2005-2010
+%%%
+%%% @copyright (C) 2011, <Afiniate, Inc.>
+%%%
+%%% Updated by,
+%%% @copyright Miloud Eloumri, <miloud.eloumri@gmail.com>,
+%%% [https://www.linkedin.com/in/miloudeloumri/], 16. Nov 2021 9:26 AM.
+%%% Compiled with Rebar3 3.17.0 on Erlang/OTP 23 Erts 11.0
+%%%
+%%% All rights reserved.
+%%%
+%%% You may use this file under the terms of the BSD License. See the
+%%% license distributed with this project or
+%%% http://www.opensource.org/licenses/bsd-license.php
+%%%-------------------------------------------------------------------
+%%%
+%%%-------------------------------------------------------------------
+%%% @doc seresye application resource file (seresye.app.src file) specifies,
+%%% configuration and resources needed to start the application.
+%%% Application resource file is used by rebar3 compile to generated corresponding .app file.
+%%% Changes should be made on seresye.app.src file.
+%%% @version 0.0.5.
+%%% Updated : 16. Nov 2021 9:26 AM.
+%%%
+%%% @end
+%%%-------------------------------------------------------------------
+{application,
+ seresye,
+ [{description,
+   "SERESYE means Swarm oriented ERlang Expert SYstem Engine. It is a libraryto write expert systems and rule processing engines using the Erlang."},
+  {vsn, "0.0.5"},
   {registered, []},
+  {mod, {seresye_app, []}},
   {applications, [kernel, stdlib, erlware_commons]},
-  {mod, {seresye_app, []}}]}.
+  {env, []},
+  {modules, []},
+  {maintainers, ["Miloud Eloumri"]},
+  {licenses, ["BSD"]},
+  {links, [{"Github", "https://github.com/MiloudEloumri/seresye"}]}]}.
