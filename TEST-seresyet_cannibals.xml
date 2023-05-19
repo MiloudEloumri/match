@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" errors="0" skipped="0" time="0.000" name="module 'seresyet_cannibals'">
+  <testcase time="0.063" name="seresyet_cannibals:0 rules_test (module 'seresyet_cannibals')">
+    <system-out>
+    </system-out>
+  </testcase>
+</testsuite>

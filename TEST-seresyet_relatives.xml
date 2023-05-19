@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" errors="0" skipped="0" time="0.000" name="module 'seresyet_relatives'">
+  <testcase time="0.031" name="seresyet_relatives:0 rules_test (module 'seresyet_relatives')">
+    <system-out>
+    </system-out>
+  </testcase>
+</testsuite>

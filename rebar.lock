@@ -1,16 +1,41 @@
 {"1.2.0",
 [{<<"cf">>,{pkg,<<"cf">>,<<"0.3.1">>},1},
+ {<<"datum">>,
+  {git,"https://github.com/fogfish/datum",
+       {ref,"ff68851743e0c32831804772994874d9d0d1fb01"}},
+  1},
  {<<"erlware_commons">>,
   {git,"https://github.com/erlware/erlware_commons.git",
        {ref,"4406d561357adc385e6dbbce99fb0329c5f9ae75"}},
   0},
+ {<<"feta">>,
+  {git,"https://github.com/fogfish/feta",
+       {ref,"c5d251b3f995b96afd5e8ec7da61516842aa658c"}},
+  1},
+ {<<"hash">>,
+  {git,"https://github.com/fogfish/hash",
+       {ref,"a1b9101189e115b4eabbe941639f3c626614e986"}},
+  1},
+ {<<"jsx">>,{pkg,<<"jsx">>,<<"2.9.0">>},1},
+ {<<"meck">>,{pkg,<<"meck">>,<<"0.9.2">>},2},
  {<<"parse_trans">>,
   {git,"https://github.com/uwiger/parse_trans.git",
        {ref,"64b9b77ac57710c2da77a7b3b17664b11474e429"}},
-  0}]}.
+  0},
+ {<<"semantic">>,
+  {git,"https://github.com/fogfish/semantic.git",
+       {ref,"d80197b0c9402521d0c43ede8260162785b596ec"}},
+  0},
+ {<<"uid">>,{pkg,<<"uid">>,<<"1.3.3">>},1}]}.
 [
 {pkg_hash,[
- {<<"cf">>, <<"5CB902239476E141EA70A740340233782D363A31EEA8AD37049561542E6CD641">>}]},
+ {<<"cf">>, <<"5CB902239476E141EA70A740340233782D363A31EEA8AD37049561542E6CD641">>},
+ {<<"jsx">>, <<"D2F6E5F069C00266CAD52FB15D87C428579EA4D7D73A33669E12679E203329DD">>},
+ {<<"meck">>, <<"85CCBAB053F1DB86C7CA240E9FC718170EE5BDA03810A6292B5306BF31BAE5F5">>},
+ {<<"uid">>, <<"31CA7E3C9D53716A2FF425E18A33E32C141B763D47B174F757D7CAF7E4228A67">>}]},
 {pkg_hash_ext,[
- {<<"cf">>, <<"315E8D447D3A4B02BCDBFA397AD03BBB988A6E0AA6F44D3ADD0F4E3C3BF97672">>}]}
+ {<<"cf">>, <<"315E8D447D3A4B02BCDBFA397AD03BBB988A6E0AA6F44D3ADD0F4E3C3BF97672">>},
+ {<<"jsx">>, <<"8EE1DB1CABAFDD578A2776A6AAAE87C2A8CE54B47B59E9EC7DAB5D7EB71CD8DC">>},
+ {<<"meck">>, <<"81344F561357DC40A8344AFA53767C32669153355B626EA9FCBC8DA6B3045826">>},
+ {<<"uid">>, <<"063EEF9155DB42A3F00352740F1DF6799222CC8C51BF17248B1F4BEDD0D22398">>}]}
 ].
