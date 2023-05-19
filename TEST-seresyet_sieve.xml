@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" errors="0" skipped="0" time="0.000" name="module 'seresyet_sieve'">
-  <testcase time="5.609" name="seresyet_sieve:0 rules_test_ (module 'seresyet_sieve')">
-    <system-out>Rules fired: 1908
-Time = 5.593 sec, 341.14071160379046 rules/sec, rule execution time 2.9313417190775684 msec
-
-    </system-out>
-  </testcase>
-</testsuite>
