@@ -226,10 +226,10 @@ We define the rules to SERESYE by defined a 'rules' attribute at the start of th
     %%% relatives.erl
     %%%
     -module (relatives).
-
+    
     -export([father/3, grandfather/3, grandmother/3,
              mother/3, brother/4, sister/4, start/0]).
-
+    
     -rules([mother, father, brother, sister, grandfather,
             grandmother]).
 
@@ -239,7 +239,7 @@ We continue on to instantiate the engine and populate the knowledge base in the 
       application:start(seresye) % Only if it is not already started
       seresye_srv:start(relatives),
       seresye_srv:add_rules(relatives, ?MODULE)
-
+    
       seresye_srv:assert(relatives,
                      [{male, bob}, {male, corrado}, {male, mark}, {male, caesar},
                       {female, alice}, {female, sara}, {female, jane}, {female, anna},
@@ -274,55 +274,55 @@ The final complete code of our AI application is thus the following:
     -module (relatives).
     -export([father/3, grandfather/3, grandmother/3,
              mother/3, brother/4, sister/4, start/0]).
-
+    
     -rules([mother, father, brother, sister, grandfather,
              grandmother]).
-
+    
     %%
     %% if (X is female) and (X is Y's parent) then (X is Y's mother)
     %%
     mother(Engine, {female, X}, {parent, X, Y}) ->
       seresye_srv:assert(Engine, {mother, X, Y}).
-
+    
     %%
     %% if (X is male) and (X is Y's parent) then (X is Y's father)
     %%
     father(Engine, {male, X}, {parent, X, Y}) ->
       seresye_srv:assert(Engine, {father, X, Y}).
-
+    
     %%
     %% if (Y and Z have the same parent X) and (Z is female)
     %%    then (Z is Y's sister)
     %%
     sister(Engine, {parent, X, Y}, {parent, X, Z}, {female, Z}) when Y =/= Z ->
       seresye_srv:assert(Engine, {sister, Z, Y}).
-
+    
     %%
     %% if (Y and Z have the same parent X) and (Z is male)
     %%    then (Z is Y's brother)
     %%
     brother(Engine, {parent, X, Y}, {parent, X, Z}, {male, Z}) when Y =/= Z ->
       seresye_srv:assert(Engine, {brother, Z, Y}).
-
+    
     %%
     %% if (X is Y's father) and (Y is Z's parent)
     %%    then (X is Z's grandfather)
     %%
     grandfather (Engine, {father, X, Y}, {parent, Y, Z}) ->
       seresye_srv:assert (Engine, {grandfather, X, Z}).
-
+    
     %%
     %% if (X is Y's mother) and (Y is Z's parent)
     %%    then (X is Z's grandmother)
     %%
     grandmother(Engine, {mother, X, Y}, {parent, Y, Z}) ->
       seresye_srv:assert(Engine, {grandmother, X, Z}).
-
+    
     start () ->
       application:start(seresye_srv), % Only if it is not already started
       seresye_srv:start (relatives),
       seresye_srv:add_rules(relatives, ?MODULE)
-
+    
       seresye_srv:assert (relatives,
                      [{male, bob},
                       {male, corrado},
@@ -346,9 +346,11 @@ The final complete code of our AI application is thus the following:
 
 Now it's time to test our application. 
 Because we configured [rebar.config](https://github.com/MiloudEloumri/seresye/blob/master/rebar.config), 
-to run the **/examples/...** on test profile,
-We can run: *rebar3 as test shell* 
-and for example start relatives engine using: *relatives:start().*
+to run the **/examples/...** on default and test profile,
+we compile: *rebar3 compile*
+and run: *rebar3 shell*  
+or run: *rebar3 as test shell* 
+and start relatives engine using: *relatives:start().*
 as follows:
 
     $ rebar3 as test shell
@@ -435,7 +437,7 @@ select both Alice's and Anna's brothers, we can use the following function call:
     5>
 
 ***
-Running Examples and Eunit Tests
+Running Examples and EUnit Tests
 -----------
 
     $ rebar3 as test shell
@@ -453,22 +455,141 @@ Then try the examples and tests. For example:
 
     seresyee_auto:start().
 
-
     eunit:test(seresyet_relatives).
     eunit:test(seresyet_cannibals).
     eunit:test(seresyet_simple_relatives).
     eunit:test(seresyet_sieve).
 
-To run all Eunit tests use:
+**To run all EUnit tests use:**
 
     $ rebar3 eunit
 
-All Examples and Eunit tests are currently tested using *rebar 3.17.0 on Erlang/OTP 23 Erts 11.0*
+All Examples and EUnit tests are currently tested using *rebar 3.17.0 on Erlang/OTP 23 Erts 11.0*
+***
+**Semantic Relatives Example**
+=====
+The [Semantic Relatives example](https://github.com/MiloudEloumri/match/blob/main/apps/seresye/examples/semantic_relatives.erl) is a replicate of the [Relatives example](https://github.com/MiloudEloumri/match/blob/main/apps/seresye/examples/relatives_two.erl) , but it integrates and uses [Semantic Web ToolKit for Erlang applications](https://github.com/MiloudEloumri/match/blob/main/apps/seresye/examples/relatives_two.erl)  to decode stream of N-triples and compile generic triple to native type-safe representation and also intake knowledge fact from JSON-LD data source. First, an ontology corresponding to Relatives example is created using [Protégé ontology editor](https://protege.stanford.edu/). Second, since Semantic Web ToolKit for Erlang applications supports N-triples and JSON-LD, [RDFLib](https://rdflib.readthedocs.io/en/stable/)  is used to parse and serialize different Protégé ontology syntax to N-triples (Protégé already supports JSON-LD syntax). The N-triples and JSON-LD files are saved in /seresye/priv/data. Then, the N-triples file is read and decoded in Semantic Relatives example; and pattern matched and feed as KB to SERSYE and processed. [EUnit test](https://github.com/MiloudEloumri/match/blob/main/apps/seresye/test/semantic_relatives_tests.erl) is also created.  
+***
+Running Semantic Relatives Examples and EUnit Tests
+-----------
+
+    $ rebar3 compile
+    $ rebar3 shell
+
+Then try the example :
+
+    semantic_relatives:start().
+    seresye_srv:get_kb(semantic_relatives).
+    seresye_srv:query_kb(semantic_relatives, {brother, '_', alice}).
+    seresye_srv:query_kb(semantic_relatives, {brother, '_', fun (X) -> (X == alice) or (X == anna) end}).
+    seresye_srv:query_kb(semantic_relatives, {grandfather, '_', caesar}).
+    seresye_srv:query_kb(semantic_relatives, {grandfather, '_', fun (X) -> (X == caesar) or (X == anna) end}).
+    seresye_srv:query_kb(semantic_relatives, {mother, '_', alice}).
+    seresye_srv:query_kb(semantic_relatives, {father, '_', alice}).
+
+***and we obtain the same results as the Relatives example results:***
+
+    $ rebar3 compile
+    ===> Verifying dependencies...
+    ===> Analyzing applications...
+    ===> Compiling seresye
+    ===> Compiling match
+    ===> Analyzing applications...
+    ===> Compiling extra_apps/seresye/examples
+    
+    $ rebar3 shell
+    ===> Verifying dependencies...
+    ===> Analyzing applications...
+    ===> Compiling seresye
+    ===> Compiling match
+    ===> Analyzing applications...
+    ===> Compiling extra_apps/seresye/examples
+    Eshell V11.0  (abort with ^G)
+    1> ===> Booted cf
+    1> ===> Booted erlware_commons
+    1> ===> Booted seresye
+    1> ===> Booted match
+    1> ===> Booted sasl
+    1> semantic_relatives:start().
+    ok
+    2> seresye_srv:get_kb(semantic_relatives).
+    [{grandfather,corrado,caesar},
+     {grandfather,corrado,anna},
+     {father,corrado,bob},
+     {parent,corrado,bob},
+     {sister,anna,caesar},
+     {female,anna},
+     {father,corrado,alice},
+     {father,corrado,mark},
+     {male,corrado},
+     {parent,corrado,alice},
+     {grandmother,jane,caesar},
+     {grandmother,jane,anna},
+     {mother,jane,bob},
+     {mother,jane,mark},
+     {mother,jane,alice},
+     {female,jane},
+     {mother,sara,anna},
+     {parent,sara,anna},
+     {brother,mark,bob},
+     {brother,bob,mark},
+     {sister,alice,mark},
+     {brother,mark,alice},
+     {parent,jane,mark},
+     {mother,sara,caesar},
+     {female,sara},
+     {parent,sara,caesar},
+     {male,mark},
+     {brother,...},
+     {...}|...]
+    3> seresye_srv:query_kb(semantic_relatives, {brother, '_', alice}).
+    [{brother,mark,alice},{brother,bob,alice}]
+    4> seresye_srv:query_kb(semantic_relatives, {brother, '_', fun (X) -> (X == alice) or (X == anna) end}).
+    [{brother,mark,alice},
+     {brother,caesar,anna},
+     {brother,bob,alice}]
+    5> seresye_srv:query_kb(semantic_relatives, {grandfather, '_', caesar}).
+    [{grandfather,corrado,caesar}]
+    6> seresye_srv:query_kb(semantic_relatives, {grandfather, '_', fun (X) -> (X == caesar) or (X == anna) end}).
+    [{grandfather,corrado,caesar},{grandfather,corrado,anna}]
+    7> seresye_srv:query_kb(semantic_relatives, {mother, '_', alice}).
+    [{mother,jane,alice}]
+    8> seresye_srv:query_kb(semantic_relatives, {father, '_', alice}).
+    [{father,corrado,alice}]
+    9> seresye_srv:query_kb(semantic_relatives, {brother, '_', <<"alice">>}).
+    []
+    10> seresye_srv:query_kb(semantic_relatives, {father, '_', alice}).
+    [{father,corrado,alice}]
+    11> seresye_srv:query_kb(semantic_relatives, {mother, '_', alice}).
+    [{mother,jane,alice}]
+    12>
+
+***To run Semantic Example EUnit:***
+ 
+
+    $ rebar3 eunit --module=semantic_relatives_tests
+
+    $ rebar3 eunit --module=semantic_relatives_tests
+    ===> Verifying dependencies...
+    ===> Analyzing applications...
+    ===> Compiling seresye
+    ===> Compiling match
+    ===> Analyzing applications...
+    ===> Compiling extra_apps/seresye/examples
+    ===> Performing EUnit tests...
+    ======================== EUnit ========================
+    module 'semantic_relatives_tests'
+      semantic_relatives_tests: rules_test...[0.015 s] ok
+      semantic_relatives_tests:92: semantic_relatives_test_...[0.016 s] ok
+      [done in 0.062 s]
+    =======================================================
+      2 tests passed.
+
 ***
 Conclusions
 -----------
 
-This HowTo not only shows how to use the SERESYE engine to write an AI application, but also highlights the versatility
+This How to not only shows how to use the SERESYE engine to write an AI application, but also highlights the versatility
 of the Erlang language:
 the characteristics of functional and symbolic programming, together with the possibility of performing *introspection*
 of function declaration, can be successfully exploited for application domains which are completely new for Erlang but
