@@ -1,0 +1,137 @@
+[
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#anna",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female"
+    ],
+    "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob"
+      },
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#mark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male"
+    ],
+    "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado"
+      },
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://www.w3.org/2002/07/owl#versionIRI": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives/1.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#caesar",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male"
+    ],
+    "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob"
+      },
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#alice",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female"
+    ],
+    "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado"
+      },
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male",
+      "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent"
+    ],
+    "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent": [
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado"
+      },
+      {
+        "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  }
+]
