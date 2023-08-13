@@ -1,19 +1,19 @@
-{application, match,
- [{description, "match rebar3 release"},
+{application, semantic_relatives,
+ [{description, "Semantic Relatives app uses SERESYE and Semantic Web ToolKit for Erlang applications to process semantic data."},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, {match_app, []}},
+  {mod, {semantic_relatives_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    semantic,
+    seresye
    ]},
   {env,[]},
   {modules, []},
-    
+
   {maintainers, ["Miloud Eloumri"]},
   {licenses, ["Apache 2.0"]},
   {links, [{"Github",
     "https://github.com/MiloudEloumri/match"}]}
-
  ]}.
- 

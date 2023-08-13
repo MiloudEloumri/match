@@ -45,12 +45,14 @@
 %%%-------------------------------------------------------------------
 %%% @doc SERESYE - Semantic relatives example.
 %%% @version 0.0.5.
-%%% Updated : 31. May 2023 10:26 AM.
+%%% Updated : 06. June 2023 7:30 PM.
 %%%
 %%% @end
 %%%-------------------------------------------------------------------
 %%%
--module(semantic_relatives).
+-module(semantic_relatives_mnesia).
+
+-include("semantic_relatives_mnesia_kb.hrl").
 
 -export([father/3, grandfather/3, grandmother/3, mother/3, brother/4, sister/4, start/0]).
 
@@ -97,24 +99,43 @@ grandmother(Engine, {mother, X, Y}, {parent, Y, Z}) ->
 %% @end
 -spec start() -> ok | error.
 start() ->
+  %% @doc Creates Mnesia Table.
+  %% @end  
+  case semantic_relatives_mnesia_handler:start() of
+    ok -> ok;
+    _ -> io:format("Could not start Mnesia handler. Mnesia operations will not be performed~n")      
+  end,
+
   % Start the semantic library. If it starts successfully, continue; otherwise, print an error message.
   case semantic:start() of
     % The semantic module started successfully.
-    {ok, [semantic]} ->
+    {ok, []} ->
       % Join the given path elements into a path to a data file.
-      NTriples = filename:join([code:priv_dir(seresye), "data", "ntriples-relatives.nt"]),
+      NTriples = filename:join([code:priv_dir(semantic_relatives), "data", "ntriples-relatives.nt"]),
       % Load the data file into a list.
       NTriplesStream  = stream:list(semantic:nt(NTriples)),
       % Type the loaded data.
       NTriplesStreamTyped  =  semantic:typed(NTriplesStream),
       % Start the seresye server with a given name.
-      seresye_srv:start(semantic_relatives),
+      seresye_srv:start(semantic_relatives_mnesia),
       % Add rules from the current module to the seresye server.
-      seresye_srv:add_rules(semantic_relatives, ?MODULE),
-      % Extract triples from the typed data.
+      seresye_srv:add_rules(semantic_relatives_mnesia, ?MODULE),
+      % Extract tuples from the typed data.
+      % There are two tuples patterns: {predicate, object, Subject} and {object, Subject}
       ListOfTuples = extract_tuples(NTriplesStreamTyped),
       % Assert each triple in the seresye server.
-      lists:foreach(fun(Tuple) ->  seresye_srv:assert(semantic_relatives, Tuple) end, ListOfTuples),
+      lists:foreach(fun(Fact) ->  seresye_srv:assert(semantic_relatives_mnesia, Fact) end, ListOfTuples),
+      % KB holds all facts in a list of tuples including the facts resulted from rules such as {mother, X, Y}
+      % So KB has the following pattern: [{predicate, object, subject}, {object, subject}]
+      KB = seresye_srv:get_kb(semantic_relatives_mnesia),
+      % Store KB in Mnesia table
+      case semantic_relatives_mnesia_handler:insert_kb(KB) of
+        % KB stored in Mnesia table successfully.
+        ok -> ok;
+        % Error storing KB in Mnesia table.
+        {error, Reason} -> 
+          io:format("Error storing KB in Mnesia table: ~p~n", [Reason])
+      end,
       ok;
     % The semantic module did not start successfully. Print an error message.
     {error, Reason} ->
@@ -127,7 +148,7 @@ start() ->
 %% @end
 -spec match_map(Map :: map()) -> [{atom(), atom(), atom()}].
 match_map(Map) ->
-  % Pattern match and assign values of s,p,o in a map to S (Subject), P (predicate), O (Object) variables respectively.
+  % Pattern match and assign values of s,p,o in a map to  S (Subject), P (predicate), and O (Object) variables respectively.
   #{s := S, p := P, o := O} = Map,
   % Check the predicate P.
   case P of

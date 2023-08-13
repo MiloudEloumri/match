@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc match top level supervisor.
+%% @doc semantic_relatives top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(match_sup).
+-module(semantic_relatives_sup).
 
 -behaviour(supervisor).
 
@@ -33,4 +33,3 @@ init([]) ->
     {ok, {SupFlags, ChildSpecs}}.
 
 %% internal functions
-
