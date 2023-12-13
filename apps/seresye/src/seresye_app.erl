@@ -89,7 +89,7 @@ start(_StartType, _StartArgs) ->
 %%
 %% @end
 %%--------------------------------------------------------------------
--spec stop(State::term()) -> ok.
+-spec stop(State :: term()) -> ok.
 stop(_State) ->
     ok.
 

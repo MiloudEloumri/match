@@ -1,19 +1,12 @@
-{application, match,
+{application,
+ match,
  [{description, "match rebar3 release"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, {match_app, []}},
-  {applications,
-   [kernel,
-    stdlib
-   ]},
-  {env,[]},
+  {applications, [kernel, stdlib]},
+  {env, []},
   {modules, []},
-    
   {maintainers, ["Miloud Eloumri"]},
   {licenses, ["Apache 2.0"]},
-  {links, [{"Github",
-    "https://github.com/MiloudEloumri/match"}]}
-
- ]}.
- 
+  {links, [{"Github", "https://github.com/MiloudEloumri/match"}]}]}.

@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc match top level supervisor.
+%% @doc job_match top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(match_sup).
+-module(job_match_sup).
 
 -behaviour(supervisor).
 

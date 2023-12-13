@@ -1,4 +1,5 @@
 -module(seresye_semantic_relatives_tests).
+
 -include_lib("eunit/include/eunit.hrl").
 
 rules_test() ->

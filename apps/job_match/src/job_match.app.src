@@ -1,0 +1,13 @@
+{application,
+ job_match,
+ [{description,
+   "job_match uses SERESYE and Semantic Web ToolKit for Erlang applications for jobs applicants matching - personnel selection"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {job_match_app, []}},
+  {applications, [kernel, stdlib, semantic, seresye]},
+  {env, []},
+  {modules, []},
+  {maintainers, ["Miloud Eloumri"]},
+  {licenses, ["Apache 2.0"]},
+  {links, [{"Github", "https://github.com/MiloudEloumri/match/apps/job_match"}]}]}.
