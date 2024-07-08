@@ -99,6 +99,7 @@ match(Engine, {job, JobID, JobRest}, {applicant, JobID, ApplicantRest}) ->
                     ApplicantTechSkills2,
                     ApplicantSoftSkills1,
                     ApplicantSoftSkills2),
+    
     {_, _, EduNormalized} = EduResult,
     {_, _, ExpNormalized} = ExpResult,
     {_, _, SkillsNormalized} = SkillsResult,
@@ -108,14 +109,14 @@ match(Engine, {job, JobID, JobRest}, {applicant, JobID, ApplicantRest}) ->
 
     StarRating = star_eval(Score),
 
-    %% Build match rule result tuple
+    %% Build match fact result in a tuple structure 
     EvalResult =
         {match,
          JobID,
          ApplicantId,
          {JName, ApplicantName, TotalScore, StarRating, EduResult, ExpResult, SkillsResult}},
 
-    %% Assert match rule result
+    %% Assert match fact
     %% This will add facts to the KB if rule processing pattern matches (a match rule pattern matches with existing initial KB facts)
     seresye_engine:set_client_state(
         seresye_engine:assert(Engine, EvalResult),

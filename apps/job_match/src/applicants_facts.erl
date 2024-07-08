@@ -43,7 +43,7 @@ group_by_job_seeker(Map, Acc) ->
     JobSeekerIDBinary = extract_job_seeker_id(IRI),
     maps:update_with(JobSeekerIDBinary, fun(OldData) -> [Map | OldData] end, [Map], Acc).
 
-%% Purpose: Extracts the job seeker ID from an IRI.
+%% Purpose: Extracts the job seeker ID from an "s" key IRI.
 %% Argument: IRI related to a job seeker.
 %% Return: Extracted job seeker ID as a binary string.
 extract_job_seeker_id(IRI) ->
