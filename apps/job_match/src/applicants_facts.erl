@@ -9,14 +9,12 @@ extract_applicants_tuples(ListOfMaps) ->
     FilteredMaps = lists:filter(fun should_skip_map/1, ListOfMaps),
     Grouped =
         lists:foldl(fun(Map, Acc) -> group_by_job_seeker(Map, Acc) end, #{}, FilteredMaps),
-    lists:map(fun({JobSeekerID, Data}) -> convert_to_tuple(JobSeekerID, Data) end,
-              maps:to_list(Grouped)).
+    lists:flatmap(fun({JobSeekerID, Data}) -> maybe_convert_to_tuple(JobSeekerID, Data) end,
+                  maps:to_list(Grouped)).
 
 %% Purpose: Determines if a map should be included in the filtered list based on its 'p' key value.
 %% Argument: Map - A map containing data of an applicant.
 %% Return: Boolean indicating whether the map should be included (true) or skipped (false).
-%% The return value (false or true) is used by the lists:filter function
-%% to decide whether to exclude (false) or include (true) a map in the FilteredMaps.
 should_skip_map(Map) ->
     case maps:get(p, Map, undefined) of
         {iri, <<"rdf">>, _} ->
@@ -50,13 +48,52 @@ extract_job_seeker_id(IRI) ->
     [_, JobSeekerIDBinary] = binary:split(IRI, <<"#">>, [global]),
     JobSeekerIDBinary.
 
+%% Purpose: Converts grouped map data into a structured tuple if valid.
+%% Argument: JobSeekerID - The job seeker's ID, Maps - List of maps related to the job seeker.
+%% Return: A list containing a single valid tuple or an empty list.
+maybe_convert_to_tuple(JobSeekerID, Maps) ->
+    case convert_to_tuple(JobSeekerID, Maps) of
+        ignore ->
+            [];
+        Tuple ->
+            [Tuple]
+    end.
+
 %% Purpose: Converts grouped map data into a structured tuple.
 %% Argument: JobSeekerID - The job seeker's ID, Maps - List of maps related to the job seeker.
 %% Return: A tuple representing the job seeker's facts.
 convert_to_tuple(JobSeekerID, Maps) ->
     Data = extract_job_seeker_data(Maps),
     JobPostingID = extract_job_posting_id(Maps),
-    {applicant, JobPostingID, {JobSeekerID, Data}}.
+    case is_valid_data(JobPostingID, JobSeekerID, Data) of
+        true ->
+            {applicant, JobPostingID, {JobSeekerID, Data}};
+        false ->
+            ignore
+    end.
+
+%% Purpose: Checks if the job seeker data is valid.
+%% Argument: JobPostingID - The job posting ID, JobSeekerID - The job seeker ID, Data - Extracted data tuple.
+%% Return: true if valid, false otherwise.
+is_valid_data(JobPostingID,
+              JobSeekerID,
+              {Name,
+               {education, EduLevel, EduField},
+               {experience, ExpYears, ExpField1, ExpField2},
+               {techskills, TechSkill1, TechSkill2},
+               {softskills, SoftSkill1, SoftSkill2}}) ->
+    JobPostingID =/= undefined
+    andalso JobSeekerID =/= undefined
+    andalso Name =/= undefined
+    andalso EduLevel =/= undefined
+    andalso EduField =/= undefined
+    andalso ExpYears =/= undefined
+    andalso ExpField1 =/= undefined
+    andalso ExpField2 =/= undefined
+    andalso TechSkill1 =/= undefined
+    andalso TechSkill2 =/= undefined
+    andalso SoftSkill1 =/= undefined
+    andalso SoftSkill2 =/= undefined.
 
 %% Purpose: Extracts specific facts about the job seeker from the maps.
 %% Argument: Maps - List of maps related to a job seeker.

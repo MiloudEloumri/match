@@ -99,7 +99,7 @@ match(Engine, {job, JobID, JobRest}, {applicant, JobID, ApplicantRest}) ->
                     ApplicantTechSkills2,
                     ApplicantSoftSkills1,
                     ApplicantSoftSkills2),
-    
+
     {_, _, EduNormalized} = EduResult,
     {_, _, ExpNormalized} = ExpResult,
     {_, _, SkillsNormalized} = SkillsResult,
@@ -109,7 +109,7 @@ match(Engine, {job, JobID, JobRest}, {applicant, JobID, ApplicantRest}) ->
 
     StarRating = star_eval(Score),
 
-    %% Build match fact result in a tuple structure 
+    %% Build match fact result in a tuple structure
     EvalResult =
         {match,
          JobID,
