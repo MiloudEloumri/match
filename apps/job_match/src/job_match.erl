@@ -52,6 +52,8 @@
 %%%
 -module(job_match).
 
+-include("job_match_mnesia_kb.hrl").
+
 -export([match/3, start/0, edu_eval/6, exp_eval/7, skills_eval/9, score_eval/4,
          star_eval/1]).
 
@@ -661,6 +663,14 @@ star_eval(Score) ->
 %% @end
 -spec start() -> ok | error.
 start() ->
+    %% @doc Creates Mnesia Table.
+    %% @end
+    case job_match_mnesia:start() of
+        ok ->
+            ok;
+        _ ->
+            io:format("Could not start Mnesia handler. Mnesia operations will not be performed~n")
+    end,
     % Start the semantic library. If it starts successfully, continue; otherwise, print an error message.
     case semantic:start() of
         % The semantic module started successfully.
@@ -725,6 +735,55 @@ start() ->
             {ok, KBFile} = file:open("9-jobs-applicants-asserted-inferred-kb.txt", [write]),
             io:format(KBFile, "~p~n", [KB]),
             file:close(KBFile),
+            % The KB holds all facts in a list of tuples including the facts resulted from rules such as {mother, X, Y}
+            % So The KB has the following pattern:
+            % {job,JobID,
+            %     {JName,
+            %         {
+            %             {education, JEduLevel, JEduField1, JEduField2},
+            %             {experience, JExpYears, JExpField1, JExpField2},
+            %             {techskills, JTechSkills1, JTechSkills2},
+            %            {softskills, JSoftSkills1, JSoftSkills2}
+            %         }
+            %     }
+            % }
+            % {applicant,JobID,
+            %     {ApplicantId,
+            %         {ApplicantName,
+            %             {education, ApplicantEduLevel, ApplicantEduField},
+            %             {experience, ApplicantExpYears, ApplicantExpField1, ApplicantExpField2},
+            %             {techskills, ApplicantTechSkills1, ApplicantTechSkills2},
+            %             {softskills, ApplicantSoftSkills1, ApplicantSoftSkills2}
+            %         }
+            %     }
+            % }
+            % {strict,JobID,ApplicantId,
+            %     {JName, ApplicantName,
+            %         {score, ScoreFormatted},
+            %         {stars, StarRating},
+            %         {education, EducationPoints, NormalizedEduPointsFormatted},
+            %         {experience, ExperiencePoints, NormalizedExpPointsFormatted},
+            %         {skills, SkillsPoints, NormalizedSkillsPointsFormatted}
+            %     }
+            % }
+            % {match,JobID,ApplicantId,
+            %     {JName, ApplicantName,
+            %         {score, ScoreFormatted},
+            %         {stars, StarRating},
+            %         {education, EducationPoints, NormalizedEduPointsFormatted},
+            %         {experience, ExperiencePoints, NormalizedExpPointsFormatted},
+            %         {skills, SkillsPoints, NormalizedSkillsPointsFormatted}
+            %     }
+            % }
+            % Store KB in Mnesia table
+            case job_match_mnesia:insert_kb(KB) of
+                % KB stored in Mnesia table successfully.
+                ok ->
+                    ok;
+                % Error storing KB in Mnesia table.
+                {error, Reason} ->
+                    io:format("Error storing KB in Mnesia table: ~p~n", [Reason])
+            end,
             ok;
         % The semantic module did not start successfully. Print an error message.
         {error, Reason} ->

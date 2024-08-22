@@ -1,0 +1,249 @@
+[#{c => 1.0,k => <<"AGvFKZI7wAE">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#caesar">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAI">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAM">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAQ">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#anna">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAU">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#mark">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAY">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives/1.0.0">>},
+   p => {iri,<<"owl">>,<<"versionIRI">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAc">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#caesar">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAg">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#alice">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAk">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAo">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#alice">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAs">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#mark">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQAw">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQA0">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#anna">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQA4">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQA8">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBA">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBE">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#caesar">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBI">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#mark">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBM">>,
+   o => {iri,<<"owl">>,<<"Class">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBQ">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBU">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#caesar">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBY">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBc">>,
+   o => {iri,<<"owl">>,<<"Class">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBg">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#mark">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBk">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBo">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#sara">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#anna">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBs">>,
+   o => {iri,<<"owl">>,<<"NamedIndividual">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#alice">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQBw">>,
+   o => {iri,<<"owl">>,<<"Ontology">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQB0">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#jane">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQB4">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#alice">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQB8">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Male">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQCA">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Female">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#anna">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQCE">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   p =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#bob">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQCI">>,
+   o =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#corrado">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQCM">>,
+   o => {iri,<<"owl">>,<<"ObjectProperty">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#hasParent">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}},
+ #{c => 1.0,k => <<"AGvFKZJDQCQ">>,
+   o => {iri,<<"owl">>,<<"Class">>},
+   p => {iri,<<"rdf">>,<<"type">>},
+   s =>
+       {iri,<<"http://www.semanticweb.org/miloud/ontologies/2023/4/relatives#Parent">>},
+   type => {iri,<<"xsd">>,<<"anyURI">>}}]

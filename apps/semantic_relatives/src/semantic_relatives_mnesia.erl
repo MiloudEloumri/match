@@ -120,8 +120,7 @@ start() ->
         {ok, []} ->
             % Join the given path elements into a path to a data file.
             NTriples =
-                filename:join([code:priv_dir(semantic_relatives), "data", "ntriples-relatives.nt"]),
-            %% NTriples = filename:join([code:priv_dir(semantic_relatives), "data", "ntriples-btm-jobs-three-two.nt"]),
+                filename:join([code:priv_dir(semantic_relatives), "data", "1-ntriples-relatives.nt"]),
             % Load the data file into a list.
             NTriplesStream =
                 stream:list(
@@ -131,8 +130,8 @@ start() ->
 
             % write to files to check the patterns
             % this will write the files in the root of match where rebar3 shell is run
-            {ok, StreamFile} = file:open("btm-jobs-3-all-stream.txt", [write]),
-            {ok, StreamTypedFile} = file:open("btm-jobs-3-all-stream-typed.txt", [write]),
+            {ok, StreamFile} = file:open("2-ntriples-relatives-stream.txt", [write]),
+            {ok, StreamTypedFile} = file:open("3-ntriples-relatives-stream-typed.txt", [write]),
             io:format(StreamFile, "~p~n", [NTriplesStream]),
             io:format(StreamTypedFile, "~p~n", [NTriplesStreamTyped]),
             file:close(StreamFile),
@@ -150,8 +149,13 @@ start() ->
                           ListOfTuples),
             % KB holds all facts in a list of tuples including the facts resulted from rules such as {mother, X, Y}
             % So KB has the following pattern: [{predicate, object, subject}, {object, subject}]
-            % Store KB in Mnesia table
+            % Write the asserted and inferred KB to a txt file for examination purposes
+            % This will write the file in the root of match app where rebar3 shell is run
             KB = seresye_srv:get_kb(semantic_relatives_mnesia),
+            {ok, KBFile} = file:open("4-ntriples-relatives-asserted-inferred-kb.txt", [write]),
+            io:format(KBFile, "~p~n", [KB]),
+            file:close(KBFile),                                             
+            % Store KB in Mnesia table
             case semantic_relatives_mnesia_handler:insert_kb(KB) of
                 % KB stored in Mnesia table successfully.
                 ok ->
